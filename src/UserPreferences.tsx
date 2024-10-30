@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
+import { useUserPreferences } from "./UserPreferencesContext";
 
 const UserPreferences: React.FC = () => {
-  const [theme, setTheme] = useState<"dark" | "light">("light");
-  const [language, setLanguage] = useState<"en" | "nl">("en");
+  const { theme, setTheme, language, setLanguage } = useUserPreferences();
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   const toggleLanguage = () => {
-    setLanguage((prevLanguage) => (prevLanguage === "en" ? "nl" : "en"));
+    setLanguage(language === "en" ? "nl" : "en");
   };
 
   return (

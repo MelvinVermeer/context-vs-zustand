@@ -1,4 +1,6 @@
+import { useUserPreferences } from "./UserPreferencesContext";
+
 export const LanguageEmoji = () => {
-  const language = "nl" as "nl" | "en";
+  const { language } = useUserPreferences();
   return <h1>{language === "nl" ? "🇳🇱" : "🇬🇧"}</h1>;
 };

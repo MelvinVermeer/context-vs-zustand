@@ -1,4 +1,6 @@
+import { useUserPreferences } from "./useUserPreferences";
+
 export const ThemeEmoji = () => {
-  const theme = "dark" as "light" | "dark";
+  const theme = useUserPreferences((state) => state.theme);
   return <h1>{theme === "light" ? "🌞" : "🌚"}</h1>;
 };

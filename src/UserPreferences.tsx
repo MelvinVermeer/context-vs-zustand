@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 const UserPreferences: React.FC = () => {
-  const [theme, setTheme] = useState<"dark" | "light">("light");
-  const [language, setLanguage] = useState<"en" | "nl">("en");
+  const [theme, setTheme] = useState<Theme>("light");
+  const [language, setLanguage] = useState<Language>("en");
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));

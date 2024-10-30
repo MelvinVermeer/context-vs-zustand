@@ -1,4 +1,4 @@
 export const ThemeEmoji = () => {
-  const theme = "dark" as "light" | "dark";
+  const theme = "light";
   return <h1>{theme === "light" ? "🌞" : "🌚"}</h1>;
 };

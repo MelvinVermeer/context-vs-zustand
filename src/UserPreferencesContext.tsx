@@ -1,21 +1,14 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
-interface UserPreferencesContextProps {
-  language: "en" | "nl";
-  theme: "light" | "dark";
-  setLanguage: (language: "en" | "nl") => void;
-  setTheme: (theme: "light" | "dark") => void;
-}
-
 const UserPreferencesContext = createContext<
-  UserPreferencesContextProps | undefined
+  UserPreferencesContext | undefined
 >(undefined);
 
 export const UserPreferencesProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [language, setLanguage] = useState<"en" | "nl">("nl");
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [language, setLanguage] = useState<Language>("nl");
+  const [theme, setTheme] = useState<Theme>("light");
 
   return (
     <UserPreferencesContext.Provider
@@ -26,7 +19,7 @@ export const UserPreferencesProvider: React.FC<{ children: ReactNode }> = ({
   );
 };
 
-export const useUserPreferences = (): UserPreferencesContextProps => {
+export const useUserPreferences = (): UserPreferencesContext => {
   const context = useContext(UserPreferencesContext);
   if (!context) {
     throw new Error(
